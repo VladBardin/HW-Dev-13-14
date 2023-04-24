@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Note List</title>
+  <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+  <h1>Note List</h1>
+  <a class="btn btn-primary mb-3" href="/note/new">New Note</a>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="note : ${notes}">
+      <td th:text="${note.id}"></td>
+      <td th:text="${note.title}"></td>
+      <td th:text="${note.content}"></td>
+      <td><a class="btn btn-secondary btn-sm" th:href="@{/note/edit(id=${note.id})}">Edit</a></td>
+      <td>
+        <form th:action="@{/note/delete}" method="post">
+          <input type="hidden" name="id" th:value="${note.id}" />
+          <input type="hidden" name="_method" th:value="DELETE" />
+          <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

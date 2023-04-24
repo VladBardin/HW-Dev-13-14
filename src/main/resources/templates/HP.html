@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Note</title>
+  <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}">
+</head>
+<body class="center">
+<style>
+        body {
+            background-color: #bfefff;
+        }
+    </style>
+<div class="container">
+  <h1 class="text-center mb-5">Choose your action</h1>
+  <div class="row justify-content-center">
+    <div class="col-sm-4 mb-3">
+      <form th:action="@{/note/new}">
+        <button class="btn btn-primary btn-block" type="submit">Save Note</button>
+      </form>
+    </div>
+    <div class="col-sm-4 mb-3">
+      <form th:action="@{/note/list}">
+        <button class="btn btn-primary btn-block" type="submit">Get all Notes</button>
+      </form>
+    </div>
+    <div class="col-sm-4 mb-3">
+      <form th:action="@{/note/edit}">
+        <button class="btn btn-primary btn-block" type="submit">Edit Note</button>
+      </form>
+    </div>
+    <div class="col-sm-15 ">
+      <form th:action="@{/note/delete}" method="post">
+        <div class="form-group">
+          <label for="id" class="font-weight-bold" style="font-size: 20px;">Input the id of unnecessary note</label>
+          <input class="form-control" type="text" id="id" name="id">
+        </div>
+        <input type="hidden" name="_method" value="DELETE"/>
+        <button class="btn btn-danger btn-block" type="submit">Delete Note</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

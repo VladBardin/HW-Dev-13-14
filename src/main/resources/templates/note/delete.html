@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Delete Note</title>
+  <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}">
+</head>
+<body class="bg-light">
+<div class="container my-5">
+  <h1 class="text-center">Note successfully deleted!</h1>
+  <div class="d-flex justify-content-center">
+    <a class="btn btn-primary mr-3" href="/note/list">Get all Notes</a>
+    <form th:action="@{/note/HP}">
+      <button class="btn btn-secondary" type="submit">Main page</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>
